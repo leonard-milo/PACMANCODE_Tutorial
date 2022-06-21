@@ -42,3 +42,13 @@ class Vector2(object):
 
     def magnitude(self):
         return math.sqrt(self.magnitudeSquared())
+
+# Copy Methods
+    def copy(self):
+        return Vector2(self.x, self.y)
+
+    def asTuple(self):
+        return self.x, self.y
+
+    def asInt(self):
+        return int(self.x), int(self.y)
