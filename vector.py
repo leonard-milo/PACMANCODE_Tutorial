@@ -35,3 +35,10 @@ class Vector2(object):
             if abs(self.y - other.y) < self.thresh:
                 return True
         return False
+
+# Magnitude Methods
+    def magnitudeSquared(self):
+        return self.x**2 + self.y**2
+
+    def magnitude(self):
+        return math.sqrt(self.magnitudeSquared())
