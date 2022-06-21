@@ -8,6 +8,7 @@ class GameController(object):
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode(SCREENSIZE, 0, 32)
+        pygame.display.set_caption('PAC-MAN')
         self.background = None
 
         self.clock = pygame.time.Clock()
