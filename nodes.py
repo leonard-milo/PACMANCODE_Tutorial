@@ -1,6 +1,8 @@
+from logging import _Level
 import pygame
 from vector import Vector2
 from constants import *
+import numpy as np
 
 class Node(object):
     def __init__(self, x, y):
@@ -17,8 +19,17 @@ class Node(object):
 
 class NodeGroup(object):
     def __init__(self):
-        self.nodeList = []
-
+        #self.nodeList = []
+        self.level = level
+        self.nodesLUT = {}
+        self.nodeSymbols = ['+']
+        self.pathSymbols = ['.']
+        data = self.readMazeFile(level)
+        self.createNodeTable(data)
+        self.connectHorizontally(data)
+        self.connectVertically(data)
+    
+    '''
     def setupTestNodes(self):
         nodeA = Node(80 ,80)
         nodeB = Node(160, 80)
@@ -44,6 +55,7 @@ class NodeGroup(object):
         nodeG.neighbors[UP] = nodeE
         nodeG.neighbors[LEFT] = nodeF
         self.nodeList = [nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG]
+    '''
 
     def render(self, screen):
         for node in self.nodeList:
