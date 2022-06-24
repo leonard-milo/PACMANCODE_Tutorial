@@ -28,6 +28,9 @@ class NodeGroup(object):
         self.createNodeTable(data)
         self.connectHorizontally(data)
         self.connectVertically(data)
+
+    def readMaxeFile(self, textfile):
+        return np.loadtxt(textfile, dtype='<U1')
     
     '''
     def setupTestNodes(self):
