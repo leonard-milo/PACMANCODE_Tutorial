@@ -112,6 +112,10 @@ class NodeGroup(object):
         self.nodeList = [nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG]
     '''
 
+    def getStartTempNode(self):
+        nodes = list(self.nodesLUT.values())
+        return nodes[0]
+
     def render(self, screen):
-        for node in self.nodeList:
+        for node in self.nodesLUT.values():
             node.render(screen)
