@@ -1,4 +1,3 @@
-from logging import _Level
 import pygame
 from vector import Vector2
 from constants import *
@@ -18,7 +17,7 @@ class Node(object):
                 pygame.draw.circle(screen, RED, self.position.asInt(), 12)
 
 class NodeGroup(object):
-    def __init__(self):
+    def __init__(self, level):
         #self.nodeList = []
         self.level = level
         self.nodesLUT = {}
@@ -29,7 +28,7 @@ class NodeGroup(object):
         self.connectHorizontally(data)
         self.connectVertically(data)
 
-    def readMaxeFile(self, textfile):
+    def readMazeFile(self, textfile):
         return np.loadtxt(textfile, dtype='<U1')
     
     def createNodeTable(self,data, xoffset=0, yoffset=0):
