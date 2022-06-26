@@ -6,7 +6,7 @@ import numpy as np
 class Node(object):
     def __init__(self, x, y):
         self.position = Vector2(x, y)
-        self.neighbors = {UP:None, DOWN:None, LEFT:None, RIGHT:None}
+        self.neighbors = {UP:None, DOWN:None, LEFT:None, RIGHT:None, PORTAL:None}
 
     def render(self, screen):
         for n in self.neighbors.keys():
